@@ -104,24 +104,24 @@ function deleteRow(button) {
 function confirmDelete() {
   if (!targetDeleteRow) return;
 
-  const type = targetDeleteRow.dataset.type;
+  // ✅ 行を削除せず、訂正済みの見た目にする
+  targetDeleteRow.classList.add('cancelled');
+  targetDeleteRow.dataset.cancelled = "1";
 
-  if (type === 'laxative' && laxativeCount > 0) {
-    laxativeCount--;
-  }
-  if (type === 'stool' && stoolCount > 0) {
-    stoolCount--;
-  }
-  if (type === 'symptom' && symptomGroupCount > 0) {
-    symptomGroupCount--;
+  // ✅ ボタン表示を変えたい場合（任意）
+  const btn = targetDeleteRow.querySelector('.delete-btn');
+  if (btn) {
+    btn.textContent = '取消';
+    // btn.innerHTML = '取消'; でもOK
   }
 
-  targetDeleteRow.remove();
+  // ✅ 連番は降り直し「あり/なし」どちらでもOKだけど、
+  // 今回は「降り直し無し」なので renumberRows() は呼ばない
+
   targetDeleteRow = null;
-
-  renumberRows();
   closeDeleteModal();
 }
+
 
 // × を押したとき
 function cancelDelete() {

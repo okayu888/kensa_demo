@@ -246,3 +246,16 @@ th {
   border: 1px solid #ccc;
 }
 
+/* ===== 訂正（取消）済みの行 ===== */
+tr.cancelled {
+  background: #f0f0f0;
+  color: #777;
+}
+tr.cancelled img {
+  opacity: 0.5;
+}
+tr.cancelled .delete-btn {
+  opacity: 0.5;
+  pointer-events: none; /* もう一度押せないようにする（不要なら消してOK） */
+}
+
