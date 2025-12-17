@@ -14,9 +14,7 @@ h1 {
   margin-bottom: 10px;
 }
 
-.buttons.sub button {
-  background: #fff3f3;
-}
+
 
 button {
   padding: 10px 16px;
@@ -25,6 +23,81 @@ button {
   border-radius: 8px;
   border: 1px solid #ccc;
   cursor: pointer;
+}
+
+/* ===== 患者画面：操作ボタン調整（デモ用にも適用） ===== */
+.buttons {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;            /* ボタン同士 */
+}
+
+.main-buttons {
+  margin-bottom: 24px; /* 上段と下段 */
+}
+
+/* 下剤・排便（大きい正方形） */
+.btn-large {
+  width: 120px;
+  height: 120px;
+  font-size: 18px;
+  border-radius: 16px;
+  padding: 0; /* 既存buttonのpaddingを上書き */
+  background-color: #F3FFF6;
+}
+
+/* 腹痛・吐き気・その他（少し小さめ） */
+.btn-small {
+  min-width: 100px;
+  height: 48px;
+  font-size: 16px;
+  background-color: #FFF8E6;
+}
+
+/* タブレット */
+@media (max-width: 1024px) {
+  .btn-large {
+    width: 140px;
+    height: 140px;
+    font-size: 20px;
+  }
+  .btn-small {
+    min-width: 120px;
+    height: 56px;
+    font-size: 17px;
+  }
+}
+
+/* スマホ */
+@media (max-width: 480px) {
+  .btn-large {
+    width: 140px;
+    height: 140px;
+    font-size: 22px;
+    padding: 0;
+    border-radius: 20px;
+  }
+  .btn-small {
+    width: 120px;
+    height: 64px;
+    font-size: 18px;
+    padding: 0;
+    border-radius: 14px;
+  }
+}
+
+/* 押している間だけ色が変わる（クリック中） */
+button.btn-large:active {
+  background-color: #DFF5E6;
+  border-color: #8bcfa8;
+  transform: scale(0.97);
+}
+
+button.btn-small:active {
+  background-color: #FFE8B3;
+  border-color: #e0c36a;
+  transform: scale(0.97);
 }
 
 
